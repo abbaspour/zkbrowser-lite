@@ -1,1 +1,4 @@
 README.html
+*.pyc
+.idea
+*.swp
