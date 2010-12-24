@@ -1,15 +1,8 @@
 #!/usr/bin/env python
-
-__author__ = 'amin'
-
 import web
-
 from zk import ZooKepperConnection
 
-urls = (
-    '/(.*)', 'node',
-)
-
+urls = ('/(.*)', 'node')
 render = web.template.render('templates/')
 
 zkc = ZooKepperConnection("192.168.0.71:2181")
@@ -24,9 +17,6 @@ class node:
         children = zkc.children(name)
         return render.page(home, name, data, info, children)
 
-if __name__ == "__main__":
-    app = web.application(urls, globals())
-    app.internalerror = web.debugerror
-    app.run()
-
-  
+app = web.application(urls, globals())
+app.internalerror = web.debugerror
+app.run()
