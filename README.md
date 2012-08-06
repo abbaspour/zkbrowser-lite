@@ -18,22 +18,14 @@ or
     sudo aptitude install python-zookeeper
 
 
-Usage
------
-Open code.py and change zookeeper server address, here:
-
-    zkc = ZooKepperConnection("192.168.0.71:2181")
-
 Running
 -------
-Run project
+Export environment variable ZOOKEEPER to the zookeeper client endpoint and run project
 
+    export ZOOKEEPER=192.168.1.1:2181
     python code.py [port]
 
-
-Now point your browser to http://localhost:[port]
-
-Default port is 8080.
+Now point your browser to http://localhost:8080. If you do not set ZOOKEEPER variable, a default Zookeeper address will be tried.
 
 Screenshot
 ----------
