@@ -1,11 +1,16 @@
 #!/usr/bin/env python
+import os
 import web
+
 from zk import ZooKepperConnection
 
 urls = ('/(.*)', 'node')
 render = web.template.render('templates/')
 
-zkc = ZooKepperConnection("192.168.0.71:2181")
+try:
+    zkc = ZooKepperConnection(os.environ["ZOOKEEPER"])
+except:
+    zkc = ZooKepperConnection("127.0.0.1:2181")
 
 class node:
     def GET(self, url = ""):
@@ -17,6 +22,7 @@ class node:
         children = zkc.children(name)
         return render.page(home, name, data, info, children)
 
-app = web.application(urls, globals())
-app.internalerror = web.debugerror
-app.run()
+if __name__ == '__main__' :
+    app = web.application(urls, globals())
+    app.internalerror = web.debugerror
+    app.run()
