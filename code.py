@@ -9,6 +9,7 @@ render = web.template.render('templates/')
 
 try:
     zkc = ZooKepperConnection(os.environ["ZOOKEEPER"])
+    
 except:
     zkc = ZooKepperConnection("127.0.0.1:2181")
 

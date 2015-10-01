@@ -3,19 +3,19 @@ ZooKeeper Browser - Lite
 
 Required Modules
 ----------------
-* zkpython 
+* kazoo
 * web.py
 
 Installing
 ----------
 
     sudo easy_install web.py
-    Install zkpython from contrib folder of zookeeper distribution.
+    sudo easy_install kazoo
 
 or
 
     sudo aptitude install python-webpy
-    sudo aptitude install python-zookeeper
+    sudo aptitude install python-kazoo
 
 
 Running
